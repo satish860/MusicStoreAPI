@@ -1,4 +1,5 @@
-﻿using Simple.Data;
+﻿using MusicStore.Api.Models;
+using Simple.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

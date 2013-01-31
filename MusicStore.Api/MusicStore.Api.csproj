@@ -114,7 +114,7 @@
     <Compile Include="Command\AddProductCommand.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="HttpActivator.cs" />
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Controllers\AdminUserController.cs" />
@@ -124,6 +124,7 @@
     <Compile Include="Models\ListOfProducts.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="MusicStoreBootStrap.cs" />
+    <Compile Include="Query\CategoryName.cs" />
     <Compile Include="Query\GetAllProductQuery.cs" />
     <Compile Include="Query\PagedResult.cs" />
     <Compile Include="Product.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Models\CategoryCountViewModel.cs" />
     <Compile Include="Query\IQueryFor.cs" />
     <Compile Include="Query\NullArgument.cs" />
+    <Compile Include="Query\ProductByCategoryName.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

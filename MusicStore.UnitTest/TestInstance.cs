@@ -12,7 +12,9 @@ namespace MusicStore.UnitTest
     {
         public static dynamic ProductQuery = new GetAllProductQuery();
         public static dynamic CategoryCountQuery = new CategoryAndCountQuery();
-        public static dynamic ProductController = new ProductsController(ProductQuery);
+        public static dynamic ProductsByCategoryQuery = new ProductByCategoryName();
+        public static dynamic ProductsController = new ProductsController(ProductQuery,ProductsByCategoryQuery);
         public static dynamic CategoryController = new CategoryController(CategoryCountQuery);
+        public static dynamic ProductController = null;
     }
 }

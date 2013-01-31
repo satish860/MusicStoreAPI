@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using MusicStore.Api;
+using MusicStore.Api.Models;
 using MusicStore.Api.Query;
 using NUnit.Framework;
 using System.Collections.Generic;

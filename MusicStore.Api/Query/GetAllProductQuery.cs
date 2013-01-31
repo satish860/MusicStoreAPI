@@ -13,7 +13,7 @@ namespace MusicStore.Api.Query
         {
             Future<int> Count;
             var Db = Database.Open();
-            IEnumerable<ProductViewModel> products = Db.Products.All().
+            IEnumerable<ProductViewModel> products = Db.Products.FindAll(Db.Products.Id != 0).
                                                      WithTotalCount(out Count)
                                                      .Skip((input.PageNumber - 1) * 10)
                                                      .Take(10);

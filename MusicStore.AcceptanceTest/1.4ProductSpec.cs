@@ -16,7 +16,7 @@ namespace MusicStore.AcceptanceTest
             it["Should be able to get upto first 10 products without sending page number"] = () =>
             {
                 var client = HttpClientFactory.CreateClient();
-                HttpResponseMessage message = client.GetAsync("/api/products").Result;
+                HttpResponseMessage message = client.GetAsync("/api/products/GetAllProducts").Result;
                 JObject items = JObject.Parse(message.Content.ReadAsStringAsync().Result);
                 ListOfProducts productViewModels = items.ToObject<ListOfProducts>();
                 productViewModels.Products.Select(p => p.Id).Should().ContainInOrder(Enumerable.Range(1, 10));
@@ -25,7 +25,7 @@ namespace MusicStore.AcceptanceTest
             it["Should be able to get 10 products based on the page Number"] = () =>
             {
                 var client = HttpClientFactory.CreateClient();
-                HttpResponseMessage message = client.GetAsync("/api/products/2").Result;
+                HttpResponseMessage message = client.GetAsync("/api/products/GetAllProducts/2").Result;
                 JObject items = JObject.Parse(message.Content.ReadAsStringAsync().Result);
                 ListOfProducts productViewModels = items.ToObject<ListOfProducts>();
                 productViewModels.Products.Select(p => p.Id).Should().ContainInOrder(Enumerable.Range(1, 10));

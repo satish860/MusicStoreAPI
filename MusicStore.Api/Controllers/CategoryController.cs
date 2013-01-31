@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Linq;
+using MusicStore.Api.Models;
 
 namespace MusicStore.Api.Controllers
 {
@@ -17,7 +18,7 @@ namespace MusicStore.Api.Controllers
         public IEnumerable<CategoryCountViewModel> Get()
         {
             IEnumerable<CategoryCountViewModel> categoryByCount = this.Query.Execute(NullArgument.BuildDefault());
-            string link = Url.Link("DefaultApi", new { controller = "Product", Id = "REPLACEID" });
+            string link = Url.Link("DefaultApi", new { controller = "Products", Id = "REPLACEID" });
             categoryByCount.ToList().ForEach(category =>
             {
                 category.ProductUrl = link.Replace("REPLACEID", category.CategoryName);

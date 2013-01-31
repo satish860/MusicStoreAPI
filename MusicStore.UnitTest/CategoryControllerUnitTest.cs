@@ -12,6 +12,7 @@ using System.Web.Http.Routing;
 using System.Web.Http.Controllers;
 using System.Web.Http.Hosting;
 using System.Web.Http.SelfHost;
+using MusicStore.Api.Models;
 
 namespace MusicStore.UnitTest
 {
@@ -31,7 +32,7 @@ namespace MusicStore.UnitTest
         {
             dynamic Controller = ConfigureController(TestInstance.CategoryController);
             IEnumerable<CategoryCountViewModel> categoryCountModel=Controller.Get();
-            categoryCountModel.First().ProductUrl.Should().Be("http://localhost/api/Product/Mobile");
+            categoryCountModel.First().ProductUrl.Should().Be("http://localhost/api/Products/Mobile");
         }
 
         public ApiController ConfigureController(ApiController controller)

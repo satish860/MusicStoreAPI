@@ -1,4 +1,4 @@
-﻿using MusicStore.Api.Model;
+﻿using MusicStore.Api.Models;
 using Simple.Data;
 
 namespace MusicStore.Api.Query

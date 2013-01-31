@@ -1,4 +1,4 @@
-﻿namespace MusicStore.Api
+﻿namespace MusicStore.Api.Models
 {
     public class CategoryCountViewModel
     {

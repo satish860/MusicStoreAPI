@@ -6,6 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Web.Http.SelfHost;
 using System.Linq;
+using MusicStore.Api.Models;
+using System.Net.Http;
 
 namespace MusicStore.AcceptanceTest
 {
@@ -20,7 +22,7 @@ namespace MusicStore.AcceptanceTest
             beforeAll = () =>
             {
                 var client = HttpClientFactory.CreateClient();
-                HttpSelfHostConfiguration configuration = new HttpSelfHostConfiguration("http://locahost:8080");
+               
 
                 var response = client.GetAsync("/api/category").Result;
                 ExpectedResult = new List<CategoryCountViewModel> {
@@ -50,9 +52,23 @@ namespace MusicStore.AcceptanceTest
                 ActualModel.First().Count.should_be(4);
             };
 
-            xit["Should be possible to get the url for Products By category"] = () =>
+            it["Should be possible to get the url for Products By category"] = () =>
             {
+                ActualModel.First().ProductUrl.should_be("http://localhost:8082/api/Products/Mobile");
 
+            };
+        }
+
+        public void Given_the_Product_url_With_The_Category_name()
+        {
+            it["Should be possible to get the Products by Category"] = () =>
+            {
+               
+                var client = HttpClientFactory.CreateClient();
+                HttpResponseMessage message = client.GetAsync("/api/Products/GetByCategory/Mobile").Result;
+                JObject jsonObject=JObject.Parse(message.Content.ReadAsStringAsync().Result);
+                ListOfProducts products=jsonObject.ToObject<ListOfProducts>();
+                products.Products.Select(p => p.Id).should_be(Enumerable.Range(1, 4));
             };
         }
     }

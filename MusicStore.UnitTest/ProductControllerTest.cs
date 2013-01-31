@@ -30,9 +30,14 @@ namespace MusicStore.UnitTest
         [Test]
         public void Should_be_able_to_Add_the_Cart_Url_to_the_Link()
         {
-            dynamic ProductController = ConfigureController(TestInstance.ProductController);
+            dynamic ProductController = ConfigureController(TestInstance.ProductsController);
             ListOfProducts products=ProductController.Get();
             products.Products.First().AddToCartUrl.Should().Be("http://localhost/api/Cart/1");
+        }
+
+        [Test]
+        public void Should_be_able_to_add_Get_the_Product_By_Catgeory()
+        {
         }
 
         public ApiController ConfigureController(ApiController controller)

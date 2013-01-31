@@ -83,6 +83,7 @@
     <Compile Include="AddProductCommandUnitTest.cs" />
     <Compile Include="CategoryControllerUnitTest.cs" />
     <Compile Include="CategoryQueryTest.cs" />
+    <Compile Include="GetProductsByCategoryTest.cs" />
     <Compile Include="InMemoryCommandBus.cs" />
     <Compile Include="InventoryControllerUnitTest.cs" />
     <Compile Include="ProductControllerTest.cs" />

@@ -1,4 +1,4 @@
-﻿namespace MusicStore.Api.Model
+﻿namespace MusicStore.Api.Models
 {
     public class AdminModel
     {

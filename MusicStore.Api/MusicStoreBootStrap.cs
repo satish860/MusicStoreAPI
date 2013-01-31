@@ -1,6 +1,6 @@
 ﻿using MusicStore.Api.Command;
 using MusicStore.Api.CommandHandlers;
-using MusicStore.Api.Model;
+using MusicStore.Api.Models;
 using MusicStore.Api.Query;
 using Newtonsoft.Json.Serialization;
 using Simple.Data;
@@ -71,6 +71,12 @@ namespace MusicStore.Api
               , constraints: null
               , handler: routeHandlers
           );
+            httpConfiguration.Routes.MapHttpRoute(
+            name: "ActionApi",
+            routeTemplate: "api/{controller}/{Action}/{CategoryName}",
+            defaults: new { controller = "Product", CategoryName = RouteParameter.Optional }
+        );
+
             httpConfiguration.Routes.MapHttpRoute(
              name: "DefaultApi",
              routeTemplate: "api/{controller}/{id}",
