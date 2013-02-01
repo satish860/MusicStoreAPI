@@ -11,35 +11,37 @@ using System.Net.Http;
 using System.Web.Http.Routing;
 using System.Web.Http.Controllers;
 using System.Web.Http.Hosting;
-using System.Web.Http.SelfHost;
-using MusicStore.Api.Models;
+using System.Net;
 
 namespace MusicStore.UnitTest
 {
     [TestFixture]
-    public class CategoryControllerUnitTest
+    public class CartControllerTest
     {
-        [TestFixtureSetUp]
-        public void SetUp()
+        [Test]
+        public void Should_be_Send_the_Command_to_the_Command_bus()
         {
-            new MusicStoreBootStrap(new HttpSelfHostConfiguration("http://localhost:8008"))
-              .ConfigureDatabaseForTest()
-              .SeedDatabase();
+            dynamic Controller = ConfigureController(TestInstance.CartController);
+            CreateCartCommand command = new CreateCartCommand { Id = 1 };
+            Controller.Post(command);
+            TestInstance.InMemoryCommandBus.Command.Should().Be(command);
         }
 
         [Test]
-        public void Should_be_able_to_Get_the_Url_for_Products_By_Category()
+        public void Should_be_able_to_Send_back_Status_Code_As_201()
         {
-            dynamic Controller = ConfigureController(TestInstance.CategoryController);
-            IEnumerable<CategoryCountViewModel> categoryCountModel=Controller.Get();
-            categoryCountModel.First().ProductUrl.Should().Be("http://localhost/api/Products/GetByCategory/Mobile");
+            dynamic Controller = ConfigureController(TestInstance.CartController);
+            CreateCartCommand command = new CreateCartCommand { Id = 1 };
+            HttpResponseMessage message = Controller.Post(command);
+            message.StatusCode.Should().Be(HttpStatusCode.Created);
+            message.Headers.Location.ToString().Should().Be("http://localhost/api/Cart/1");
         }
 
         public ApiController ConfigureController(ApiController controller)
         {
             var config = new HttpConfiguration();
             var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/api/products");
-            var route = config.Routes.MapHttpRoute("ActionApi", "api/{controller}/{action}/{id}");
+            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
             var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "products" } });
             controller.ControllerContext = new HttpControllerContext(config, routeData, request);
             controller.Request = request;

@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="1.2AdminCanAddProductSpec.cs" />
     <Compile Include="1.3CategoriesSpec.cs" />
+    <Compile Include="1.5CartSpec.cs" />
     <Compile Include="1.4ProductSpec.cs" />
     <Compile Include="DebuggerShim.cs" />
     <Compile Include="HttpClientFactory.cs" />

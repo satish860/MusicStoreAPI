@@ -13,28 +13,29 @@ namespace MusicStore.Api.Controllers
     {
         private readonly IQueryFor<PagedResult, ListOfProducts> ProductQuery;
         private readonly IQueryFor<CategoryName, ListOfProducts> ProductQueryByCategory;
-        public ProductsController(IQueryFor<PagedResult, ListOfProducts> Query,IQueryFor<CategoryName,ListOfProducts> QueryByCategory)
+        public ProductsController(IQueryFor<PagedResult, ListOfProducts> Query, IQueryFor<CategoryName, ListOfProducts> QueryByCategory)
         {
             this.ProductQuery = Query;
             this.ProductQueryByCategory = QueryByCategory;
         }
 
-        [ActionName("GetAllProducts")]
-        public ListOfProducts Get(int PageNumber = 1)
+
+        [ActionName("GetAll")]
+        public ListOfProducts Get(int id = 1)
         {
-            ListOfProducts products = this.ProductQuery.Execute(PagedResult.ForPage(PageNumber));
-            string link = Url.Link("DefaultApi", new { controller = "Cart", Id = "REPLACEID"});
+            ListOfProducts products = this.ProductQuery.Execute(PagedResult.ForPage(id));
+            string link = Url.Link("DefaultApi", new { controller = "Cart", Id = "REPLACEID" });
             products.Products.ToList().ForEach(product =>
             {
-                product.AddToCartUrl=link.Replace("REPLACEID", product.Id.ToString());
+                product.AddToCartUrl = link.Replace("REPLACEID", product.Id.ToString());
             });
             return products;
         }
 
         [ActionName("GetByCategory")]
-        public ListOfProducts GetByCategory(string CategoryName)
+        public ListOfProducts GetByCategory(string id)
         {
-            return this.ProductQueryByCategory.Execute(new CategoryName { Name = CategoryName });
+            return this.ProductQueryByCategory.Execute(new CategoryName { Name = id });
         }
     }
 }

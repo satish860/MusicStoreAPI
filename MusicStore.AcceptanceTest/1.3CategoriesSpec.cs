@@ -54,7 +54,7 @@ namespace MusicStore.AcceptanceTest
 
             it["Should be possible to get the url for Products By category"] = () =>
             {
-                ActualModel.First().ProductUrl.should_be("http://localhost:8082/api/Products/Mobile");
+                ActualModel.First().ProductUrl.should_be("http://localhost:8082/api/Products/GetByCategory/Mobile");
 
             };
         }

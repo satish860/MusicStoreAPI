@@ -18,7 +18,7 @@ namespace MusicStore.Api.Controllers
         public IEnumerable<CategoryCountViewModel> Get()
         {
             IEnumerable<CategoryCountViewModel> categoryByCount = this.Query.Execute(NullArgument.BuildDefault());
-            string link = Url.Link("DefaultApi", new { controller = "Products", Id = "REPLACEID" });
+            string link = Url.Link("ActionApi", new { controller = "Products", action = "GetByCategory", Id = "REPLACEID" });
             categoryByCount.ToList().ForEach(category =>
             {
                 category.ProductUrl = link.Replace("REPLACEID", category.CategoryName);

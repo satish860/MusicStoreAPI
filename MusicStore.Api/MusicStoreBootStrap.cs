@@ -40,11 +40,13 @@ namespace MusicStore.Api
             return this;
         }
 
+
         public MusicStoreBootStrap ConfigureDatabaseForTest()
         {
             var adapter = new InMemoryAdapter();
             adapter.SetKeyColumn("AdminUser", "UserName");
             adapter.SetKeyColumn("Products", "Id");
+            adapter.SetKeyColumn("Cart", "Id");
             Database.UseMockAdapter(adapter);
             return this;
         }
@@ -62,26 +64,24 @@ namespace MusicStore.Api
                 routeTemplate: "api/AdminUser/{user}",
                 defaults: new { controller = "AdminUser", user = RouteParameter.Optional }
                 , constraints: null
-                , handler: routeHandlers
-            );
+                , handler: routeHandlers);
+
             httpConfiguration.Routes.MapHttpRoute(
               name: "Inventory",
               routeTemplate: "api/Inventory/{id}",
               defaults: new { controller = "Inventory", id = RouteParameter.Optional }
               , constraints: null
-              , handler: routeHandlers
-          );
+              , handler: routeHandlers);
+
             httpConfiguration.Routes.MapHttpRoute(
-            name: "ActionApi",
-            routeTemplate: "api/{controller}/{Action}/{CategoryName}",
-            defaults: new { controller = "Product", CategoryName = RouteParameter.Optional }
-        );
+             name: "ActionApi",
+             routeTemplate: "api/{controller}/{action}/{id}",
+             defaults: new { controller = "Product", id = RouteParameter.Optional });
 
             httpConfiguration.Routes.MapHttpRoute(
              name: "DefaultApi",
              routeTemplate: "api/{controller}/{id}",
-             defaults: new { controller = "Product", id = RouteParameter.Optional }
-         );
+             defaults: new { controller = "Product", id = RouteParameter.Optional });
             httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             return this;
         }

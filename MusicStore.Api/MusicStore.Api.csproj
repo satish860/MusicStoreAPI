@@ -107,20 +107,24 @@
   <ItemGroup>
     <Compile Include="AdminAuthorizationMessageHandler.cs" />
     <Compile Include="CommandHandlers\AddProductCommandHandler.cs" />
+    <Compile Include="CommandHandlers\CreateCartCommandHandler.cs" />
     <Compile Include="CommandHandlers\ICommandHandler.cs" />
     <Compile Include="Command\CommandBus.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ICommandBus.cs" />
     <Compile Include="Command\AddProductCommand.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Command\CreateCartCommand.cs" />
     <Compile Include="HttpActivator.cs" />
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Controllers\AdminUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\ListOfProducts.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="MusicStoreBootStrap.cs" />

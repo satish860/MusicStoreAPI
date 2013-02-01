@@ -1,4 +1,4 @@
-﻿namespace MusicStore.Api.Controllers
+﻿namespace MusicStore.Api
 {
     public class AddProductCommand : ICommand
     {

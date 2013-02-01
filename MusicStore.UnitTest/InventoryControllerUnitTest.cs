@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using MusicStore.Api;
 using MusicStore.Api.Controllers;
 using NUnit.Framework;
 using System.Net;
