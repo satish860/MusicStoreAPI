@@ -1,6 +1,7 @@
 ﻿using MusicStore.Api;
 using System;
 using System.Net.Http;
+using System.Web.Http;
 using System.Web.Http.SelfHost;
 
 namespace MusicStore.AcceptanceTest
@@ -11,6 +12,7 @@ namespace MusicStore.AcceptanceTest
         {
             var baseAddress = new Uri("http://localhost:8082/");
             var httpSelfhostConfiguration = new HttpSelfHostConfiguration(baseAddress);
+            httpSelfhostConfiguration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             HttpSelfHostServer server = new HttpSelfHostServer(httpSelfhostConfiguration);
             new MusicStoreBootStrap(httpSelfhostConfiguration)
                 .ConfigureRoute()

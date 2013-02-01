@@ -37,6 +37,16 @@ namespace MusicStore.UnitTest
             message.Headers.Location.ToString().Should().Be("http://localhost/api/Cart/1");
         }
 
+        [Test]
+        public void Should_be_Send_the_Put_Command_to_the_Command_Bus()
+        {
+            dynamic Controller = ConfigureController(TestInstance.CartController);
+            AddProductToCartCommand command = new AddProductToCartCommand { CartId = 1, ProductId = 1, Quantity = 2 };
+            HttpResponseMessage message = Controller.PutCartCommand(command);
+            TestInstance.InMemoryCommandBus.Command.Should().Be(command);
+            message.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
         public ApiController ConfigureController(ApiController controller)
         {
             var config = new HttpConfiguration();

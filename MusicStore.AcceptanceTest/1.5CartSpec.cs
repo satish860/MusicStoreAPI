@@ -18,6 +18,28 @@ namespace MusicStore.AcceptanceTest
                 Response.StatusCode.should_be(HttpStatusCode.Created);
                 Response.Headers.Location.ToString().should_be("http://localhost:8082/api/Cart/1");
             };
+
+            it["Should be possible to add a product to the cart"] = () =>
+            {
+                var client = HttpClientFactory.CreateClient();
+                CreateCartCommand Createcommand = new CreateCartCommand();
+                Createcommand.Id = 1;
+                client.PostAsJsonAsync("api/Cart", Createcommand);
+                var command = new  { cartId = 1, productId = 1, quantity = 1 };
+                var Response = client.PutAsJsonAsync("api/Cart", command).Result;
+                Response.StatusCode.should_be(HttpStatusCode.OK);
+            };
+
+            it["Should be possible to increase the quantity of the product in the cart"] = () =>
+            {
+                var client = HttpClientFactory.CreateClient();
+                CreateCartCommand Createcommand = new CreateCartCommand();
+                Createcommand.Id = 1;
+                client.PostAsJsonAsync("api/Cart", Createcommand);
+                AddProductToCartCommand command = new AddProductToCartCommand { CartId = 1, ProductId = 1, Quantity = 2 };
+                var Response = client.PutAsJsonAsync("api/Cart", command).Result;
+                Response.StatusCode.should_be(HttpStatusCode.OK);
+            };
         }
     }
 }

@@ -105,6 +105,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\AddProductToCartCommandHandler.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Command\AddProductToCartCommand.cs" />
     <Compile Include="AdminAuthorizationMessageHandler.cs" />
     <Compile Include="CommandHandlers\AddProductCommandHandler.cs" />
     <Compile Include="CommandHandlers\CreateCartCommandHandler.cs" />

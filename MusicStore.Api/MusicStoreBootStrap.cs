@@ -47,6 +47,7 @@ namespace MusicStore.Api
             adapter.SetKeyColumn("AdminUser", "UserName");
             adapter.SetKeyColumn("Products", "Id");
             adapter.SetKeyColumn("Cart", "Id");
+            adapter.SetKeyColumn("CartItem", "CartId");
             Database.UseMockAdapter(adapter);
             return this;
         }

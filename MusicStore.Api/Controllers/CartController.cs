@@ -19,9 +19,15 @@ namespace MusicStore.Api.Controllers
         {
             bus.Send(command);
             string link = Url.Link("DefaultApi", new { controller = "Cart", Id = command.Id });
-            HttpResponseMessage message=this.Request.CreateResponse(HttpStatusCode.Created);
+            HttpResponseMessage message = this.Request.CreateResponse(HttpStatusCode.Created);
             message.Headers.Location = new Uri(link);
             return message;
+        }
+
+        public HttpResponseMessage PutCartCommand(AddProductToCartCommand command)
+        {
+            bus.Send(command);
+            return this.Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 
