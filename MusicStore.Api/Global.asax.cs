@@ -10,7 +10,8 @@ namespace MusicStore.Api
         {
             new MusicStoreBootStrap(GlobalConfiguration.Configuration)
                 .ConfigureRoute()
-                .ConfigureContainer();
+                .ConfigureContainer()
+                .SeedDatabase();
         }
     }
 }

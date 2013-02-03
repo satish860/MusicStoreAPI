@@ -25,7 +25,7 @@ namespace MusicStore.AcceptanceTest
                 CreateCartCommand Createcommand = new CreateCartCommand();
                 Createcommand.Id = 1;
                 client.PostAsJsonAsync("api/Cart", Createcommand);
-                var command = new  { cartId = 1, productId = 1, quantity = 1 };
+                var command = new { cartId = 1, productId = 1, quantity = 1 };
                 var Response = client.PutAsJsonAsync("api/Cart", command).Result;
                 Response.StatusCode.should_be(HttpStatusCode.OK);
             };
@@ -39,6 +39,19 @@ namespace MusicStore.AcceptanceTest
                 AddProductToCartCommand command = new AddProductToCartCommand { CartId = 1, ProductId = 1, Quantity = 2 };
                 var Response = client.PutAsJsonAsync("api/Cart", command).Result;
                 Response.StatusCode.should_be(HttpStatusCode.OK);
+            };
+
+            xit["Should be able to delete the Product from the Cart"] = () =>
+            {
+                var client = HttpClientFactory.CreateClient();
+                CreateCartCommand Createcommand = new CreateCartCommand();
+                Createcommand.Id = 1;
+                client.PostAsJsonAsync("api/Cart", Createcommand);
+                AddProductToCartCommand command = new AddProductToCartCommand { CartId = 1, ProductId = 1, Quantity = 2 };
+                client.PutAsJsonAsync("api/Cart", command);
+                var DeleteCommand = new { cartId = 1, productId = 1, quantity = 0 };
+                var Response = client.PutAsJsonAsync("api/Cart", DeleteCommand).Result;
+                Response.StatusCode.should_be(HttpStatusCode.NoContent);
             };
         }
     }

@@ -26,5 +26,13 @@ namespace MusicStore.Api.Models
                 cartItem.Price = Quantity * item.Price;
             Price = CartItems.Select(p => p.Price).Sum();
         }
+
+        public void RemoveItem(int productId)
+        {
+            CartItem Item=CartItems.First(p => p.ProductId == productId);
+            if (Item != null)
+                Item.IsDelete = true;
+            Price = CartItems.Where(p=>!p.IsDelete).Select(p => p.Price).Sum();
+        }
     }
 }

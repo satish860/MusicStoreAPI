@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore.AcceptanceTest",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore.UnitTest", "MusicStore.UnitTest\MusicStore.UnitTest.csproj", "{70AC4AD6-B3AE-4D29-AF33-C45874183D9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore.Migrations", "MusicStore.Migrations\MusicStore.Migrations.csproj", "{722EECAF-7858-49B6-B334-B025CF60FF11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CF25B83D-C05F-4043-8568-B4AF791E8FE3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +34,10 @@ Global
 		{70AC4AD6-B3AE-4D29-AF33-C45874183D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70AC4AD6-B3AE-4D29-AF33-C45874183D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70AC4AD6-B3AE-4D29-AF33-C45874183D9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722EECAF-7858-49B6-B334-B025CF60FF11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722EECAF-7858-49B6-B334-B025CF60FF11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722EECAF-7858-49B6-B334-B025CF60FF11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722EECAF-7858-49B6-B334-B025CF60FF11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,5 +22,6 @@ namespace MusicStore.UnitTest
         public static dynamic CreateCartCommandHandler = new CreateCartCommandHandler();
         public static dynamic CartController = new CartController(InMemoryCommandBus);
         public static ICommandHandler<AddProductToCartCommand> AddProductToCommandHandler = new AddProductToCartCommandHandler();
+        public static dynamic DeleteCommandHandler = new RemoveItemFromCartCommandHandler();
     }
 }

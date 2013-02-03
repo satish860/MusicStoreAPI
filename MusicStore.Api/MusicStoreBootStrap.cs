@@ -8,6 +8,8 @@ using StructureMap;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
+using Simple.Data.SqlServer;
+using System.Data.SqlClient;
 
 namespace MusicStore.Api
 {
@@ -89,7 +91,10 @@ namespace MusicStore.Api
 
         public MusicStoreBootStrap SeedDatabase()
         {
+
             var database = Database.Open();
+            database.AdminUser.DeleteAll();
+            database.Products.DeleteAll();
             AdminModel adminUser = new AdminModel();
             adminUser.UserName = "Admin";
             adminUser.Password = "Admin";

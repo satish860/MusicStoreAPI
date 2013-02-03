@@ -20,5 +20,7 @@ namespace MusicStore.Api
 
         public bool Isnew { get; set; }
 
+        public bool IsDelete { get; set; }
+
     }
 }
