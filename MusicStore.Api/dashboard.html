@@ -1,0 +1,148 @@
+<html>
+<head>
+    <link href="css/metro-bootstrap.css" rel="stylesheet" type="type/css" />
+    <script type="text/javascript" src="scripts/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-tooltip.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-alert.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-button.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-carousel.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-collapse.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-popover.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-scrollspy.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-transition.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-typeahead.js"></script>
+    <script type="text/javascript" src="scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" src="scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript" src="scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="scripts/backbone.js"></script>
+
+
+    <style>
+        body
+        {
+            padding-top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div id="header" class="navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <h2>Music Store </h2>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="span2">
+
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Categories
+                                <b class="caret"></b>
+                                </button>
+                                <ul class="dropdown-menu" id="categorysearch">
+                                    <li><a href="#">Computer</a></li>
+                                    <li><a href="#">Electronics</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Books</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div id="content" class="span10">
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input type="text" class="span2" size="16" style="height: 36px">
+                                    <button type="button" class="btn">Go!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="#">Category</a><span class="divider">/</span> </li>
+                <li><a href="#">Electronics</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <ul class="thumbnails" id="product">
+                <ul class="span3 nav nav-tabs nav-stacked" id="category">
+                   <!-- <li><a href="#">Books</a></li>
+                    <li><a href="#">Electronics</a></li>-->
+                </ul>
+                <!-- <li class="span3">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/260x180" alt="">
+                    </a>
+                </li>-->
+                <li class="span3">
+                    <a href="#" class="thumbnail">
+                        <img src="images/samsung-galaxy-s3.jpeg" alt="">
+                        <div class="caption">
+                            <center><strong>Samsung Galaxy S3</strong></br>
+                            <strong style="color:brown">Rs. 32500</strong></center>
+                        </div>
+                    </a>
+                </li>
+                <li class="span3">
+                    <a href="#" class="thumbnail">
+                        <img src="images/samsung-galaxy-tab-2.jpeg" alt="">
+                        <div class="caption">
+                            <center><strong>Samsung Galaxy Tab 2</strong></br>
+                            (P5100 White, Wi-Fi, 3G)</br>
+                            <strong style="color:brown">Rs. 25900</strong></center>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="span3">
+                    <a href="#" class="thumbnail">
+                        <img src="images/htc-one-x.jpeg" alt="">
+                        <div class="caption">
+                            <center><strong>HTC One X+</strong></br>
+                            <strong style="color:brown">Rs. 38550</strong></center>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="row">
+                <div class="span3"></div>
+                <div class="pagination span9">
+                    <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts/category/category.js"></script>
+        <script type="text/javascript" src="scripts/category/categorycollection.js"></script>
+        <script type="text/javascript" src="scripts/category/categoryView.js"></script>
+        <script type="text/javascript" src="scripts/category/categorytemplate.js"></script>
+
+        <script type="text/javascript" src="scripts/product/product.js"></script>
+        <script type="text/javascript" src="scripts/product/productCollection.js"></script>
+        <script type="text/javascript" src="scripts/product/productView.js"></script>
+        <script type="text/javascript" src="scripts/product/productTemplate.js"></script>
+
+        <script type="text/javascript" src="scripts/app/app.js"></script>
+
+    </form>
+</body>
+</html>

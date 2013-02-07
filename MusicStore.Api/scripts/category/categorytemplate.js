@@ -1,0 +1,1 @@
+﻿var categoryTemplate = "<a href='#'><%-categoryName%> (<%-count%>)</a>";

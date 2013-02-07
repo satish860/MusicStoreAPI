@@ -144,7 +144,42 @@
     <Content Include="App_Data\MusicStore_log.ldf">
       <DependentUpon>MusicStore.mdf</DependentUpon>
     </Content>
+    <Content Include="css\metro-bootstrap.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\htc-one-x.jpeg" />
+    <Content Include="images\samsung-galaxy-s3.jpeg" />
+    <Content Include="images\samsung-galaxy-tab-2.jpeg" />
+    <Content Include="scripts\app\app.js" />
+    <Content Include="scripts\backbone.js" />
+    <Content Include="scripts\bootstrap-alert.js" />
+    <Content Include="scripts\bootstrap-button.js" />
+    <Content Include="scripts\bootstrap-carousel.js" />
+    <Content Include="scripts\bootstrap-collapse.js" />
+    <Content Include="scripts\bootstrap-dropdown.js" />
+    <Content Include="scripts\bootstrap-modal.js" />
+    <Content Include="scripts\bootstrap-popover.js" />
+    <Content Include="scripts\bootstrap-scrollspy.js" />
+    <Content Include="scripts\bootstrap-tab.js" />
+    <Content Include="scripts\bootstrap-tooltip.js" />
+    <Content Include="scripts\bootstrap-transition.js" />
+    <Content Include="scripts\bootstrap-typeahead.js" />
+    <Content Include="scripts\category\categorycollection.js" />
+    <Content Include="scripts\jquery-1.7.1.js" />
+    <Content Include="scripts\jquery-1.8.0.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\main.js" />
+    <Content Include="scripts\category\category.js" />
+    <Content Include="scripts\product\product.js" />
+    <Content Include="scripts\product\productCollection.js" />
+    <Content Include="scripts\product\productTemplate.js" />
+    <Content Include="scripts\product\productView.js" />
+    <Content Include="scripts\require-jquery.js" />
+    <Content Include="scripts\category\categorytemplate.js" />
+    <Content Include="scripts\underscore-min.js" />
+    <Content Include="dashboard.html" />
+    <Content Include="scripts\category\categoryView.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

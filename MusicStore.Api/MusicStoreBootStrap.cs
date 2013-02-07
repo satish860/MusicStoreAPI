@@ -59,6 +59,8 @@ namespace MusicStore.Api
             // List of delegating handlers.
             DelegatingHandler[] handlers = new DelegatingHandler[] { new AdminAuthorizationMessageHandler(new AdminUserQuery()) };
 
+            
+
             // Create a message handler chain with an end-point.
             var routeHandlers = HttpClientFactory.CreatePipeline(
                 new HttpControllerDispatcher(httpConfiguration), handlers);
@@ -86,6 +88,8 @@ namespace MusicStore.Api
              routeTemplate: "api/{controller}/{id}",
              defaults: new { controller = "Product", id = RouteParameter.Optional });
             httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            
             return this;
         }
 
@@ -111,8 +115,8 @@ namespace MusicStore.Api
             database.Products.Insert(new Product { Name = "Sony", Id = 10, Categories = "Camera", Price = 11000.00 });
             database.Products.Insert(new Product { Name = "Legend of Mehula", Id = 11, Categories = "Books", Price = 100.00 });
             database.Products.Insert(new Product { Name = "2 States", Id = 12, Categories = "Books", Price = 100.00 });
-            database.Products.Insert(new Product { Name = "Router", Id = 13, Categories = "Home Accesories", Price = 1000.00 });
-            database.Products.Insert(new Product { Name = "Webcam", Id = 14, Categories = "Home Accesories", Price = 1000.00 });
+            database.Products.Insert(new Product { Name = "Router", Id = 13, Categories = "Home Accessories", Price = 1000.00 });
+            database.Products.Insert(new Product { Name = "Webcam", Id = 14, Categories = "Home Accessories", Price = 1000.00 });
             database.Products.Insert(new Product { Name = "PenDrive", Id = 15, Categories = "Electronics", Price = 1000.00 });
             database.Products.Insert(new Product { Name = "Electric Stove", Id = 16, Categories = "Kitchen", Price = 450.00 });
             database.Products.Insert(new Product { Name = "Sony", Id = 17, Categories = "TV", Price = 25000.00 });
